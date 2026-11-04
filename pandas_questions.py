@@ -8,8 +8,6 @@ https://github.com/x-datascience-datacamp/datacamp-assignment-pandas/blob/main/e
 To do that, you will load the data as pandas.DataFrame, merge the info and
 aggregate them by regions and finally plot them on a map using `geopandas`.
 """
-from pandas.api.typing.aliases import Suffixes
-from turtle import right, left
 import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
@@ -51,7 +49,7 @@ def merge_referendum_and_areas(referendum, regions_and_departments):
     referendum = referendum[~referendum['Department code'].str.contains('Z')].copy()
     referendum['Department code'] = referendum['Department code'].str.zfill(2)
 
-    merge = referendum.merge( 
+    merge = referendum.merge(
         regions_and_departments,
         left_on = 'Department code',
         right_on = 'code_dep',
